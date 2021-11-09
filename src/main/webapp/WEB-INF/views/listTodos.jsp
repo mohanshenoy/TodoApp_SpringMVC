@@ -18,7 +18,7 @@
 			<div class="navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/login">Home</a></li>
-					<li><a href="/listTodos">Todos</a></li>
+					<li><a href="/TodoApp_SpringMVC/listTodos">Todos</a></li>
 		
 				</ul>
 			</div>
@@ -48,8 +48,8 @@
 								<td><fmt:formatDate pattern="dd/MM/yyyy" value="${todo.targetDate}" /></td>
 								<td>${todo.done}</td>
 								<td>
-									<a type="button" class="btn btn-success" href="/updateTodo?id=${todo.id}">Update</a> &nbsp;
-									<a type="button" class="btn btn-warning" href="/deleteTodo?id=${todo.id}">Delete</a>
+									<a type="button" class="btn btn-success" href="/TodoApp_SpringMVC/updateTodo?id=${todo.id}">Update</a> &nbsp;
+									<a type="button" class="btn btn-warning" href="/TodoApp_SpringMVC/deleteTodo?id=${todo.id}">Delete</a>
 								</td>
 							</tr>
 						</c:forEach>
@@ -57,7 +57,7 @@
 					</table>
 			   </div><br/>
 			<div>
-				<a class="btn btn-success" href="/addTodo">Add</a>
+				<a class="btn btn-success" href="/TodoApp_SpringMVC/addTodo">Add</a>
 			</div>
 			<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
 			<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
