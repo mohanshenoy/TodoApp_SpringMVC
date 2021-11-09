@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.infoscilabs.service.UserValidationService;
 
 @Controller
-public class WelcomeController {
+public class WelcomeController extends BaseController{
 	
 	@RequestMapping(value="/" ,method = RequestMethod.GET)
 	public String showLoginPage( ModelMap model) {
-		model.put("userId", "mohan");
+		model.put("userId", retrieveLoggedInUserId(model));
 		return "welcome";
 	}
 	
