@@ -7,7 +7,9 @@
 			<h1><font color="green">Hello &nbsp; ${userId} </font></h1><br/>
 			<div>
 				<table class="table table-striped">
-					<caption>Your Todos are</caption>
+					<caption>
+						<spring:message code="todo.caption" />
+					</caption>
 					<thead>
 						<tr>
 							<th>id</th>
