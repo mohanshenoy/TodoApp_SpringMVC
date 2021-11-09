@@ -4,8 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.management.RuntimeErrorException;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -15,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -61,9 +66,19 @@ public class TodoController {
 	
 	@RequestMapping(value="/addTodo" ,method = RequestMethod.GET)
 	public String showAddTodo(ModelMap model) {
+		//throw new RuntimeException( "Dummy exception raised");
 		model.addAttribute("todo", new Todo());
 		return "addTodo";
 	}	
+	
+//	private Log logger = LogFactory.getLog(ExceptionController.class);
+	
+//	@ExceptionHandler(value = Exception.class)
+//	public String handleError(HttpServletRequest req, Exception exception) {
+//		logger.error("Request: " + req.getRequestURL() + " raised " + exception);
+//		return "error-specific";
+//	}
+	
 	
 	@RequestMapping(value="/addTodo" ,method = RequestMethod.POST)
 	public String submitAddTodo( ModelMap model , @Valid Todo todo  , BindingResult result) {
